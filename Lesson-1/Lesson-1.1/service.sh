@@ -1,0 +1,1 @@
+kubectl expose pod my-pod --type=ClusterIP --name=my-service --port=80 --target-port=80 --namespace=my-namespace

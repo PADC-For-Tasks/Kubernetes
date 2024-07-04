@@ -1,0 +1,1 @@
+kubectl run my-pod --image=nginx:alpine --port=80 --namespace=my-namespace
