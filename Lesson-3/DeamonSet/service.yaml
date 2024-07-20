@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana-service
+  name: busybox-service
 spec:
   type: ExternalName
-  externalName: grafana.example.com
+  externalName: busybox.example.com

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: grafana-daemonset
+  name: busybox-daemonset
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: grafana-app
+      app: busybox-app
   template:
     metadata:
       labels:
-        app: grafana-app
+        app: busybox-app
     spec:
       containers:
-      - name: grafana
+      - name: busybox
         image: busybox
         ports:
         - containerPort: 3000
