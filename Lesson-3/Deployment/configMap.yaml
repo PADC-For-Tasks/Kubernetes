@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: semoss-config
+data:
+  SETSOCIAL: "true"
+  ENABLE_NATIVE: "true"
+  ENABLE_NATIVE_REGISTRATION: "true"

@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: random-log
+spec:
+  template:
+    metadata:
+      labels:
+        app: my-job
+    spec:
+      containers:
+      - name: random-log
+        image: chentex/random-logger
+        ports:
+        - containerPort: 3333
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "docker run -d chentex/random-logger:latest && docker logs random-log"]
+      restartPolicy: Never

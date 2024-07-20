@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crypto-config
+data:
+  DOCKER_INFLUXDB_INIT_USERNAME: "admin"
+  DOCKER_INFLUXDB_INIT_PASSWORD: "root"

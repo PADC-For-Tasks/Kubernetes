@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: grafana-daemonset
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: grafana-app
+  template:
+    metadata:
+      labels:
+        app: grafana-app
+    spec:
+      containers:
+      - name: grafana
+        image: busybox
+        ports:
+        - containerPort: 3000
+        env:
+        - name: EXTERNAL_SERVICE_HOST
+          value: "external-service.default.svc.cluster.local"
+        - name: EXTERNAL_SERVICE_PORT
+          value: "80"

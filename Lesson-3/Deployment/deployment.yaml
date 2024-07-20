@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: semoss-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: semoss-app
+  template:
+    metadata:
+      labels:
+        app: semoss-app
+    spec:
+      containers:
+      - name: semoss
+        image: semoss/docker
+        envFrom:
+        - configMapRef:
+            name: semoss-config
+        ports:
+        - containerPort: 8080

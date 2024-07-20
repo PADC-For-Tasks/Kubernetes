@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: crypto-job
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: crypto-app
+        spec:
+          containers:
+          - name: influxdb
+            image: influxdb
+            envFrom:
+            - configMapRef:
+                name: crypto-config
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
